@@ -22,9 +22,7 @@ Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement
 
 ## 🌟 Détails de la Vulnérabilité (CVE-2024-38063) : 
 ```
-La CVE-2024-38063 est une vulnérabilité critique d'exécution de code à distance affectant le protocole TCP/IP de Windows, spécifiquement lors du traitement des paquets IPv6. Cette faille permet à un attaquant distant d'exécuter du code arbitraire sur un système vulnérable, potentiellement compromettant l'intégrité et la confidentialité des données.
-Strobes Security
-Microsoft a attribué à cette vulnérabilité un score CVSS de 9,8, indiquant une sévérité élevée.
+La CVE-2024-38063 est une vulnérabilité critique d'exécution de code à distance affectant le protocole TCP/IP de Windows, spécifiquement lors du traitement des paquets IPv6. Cette faille permet à un attaquant distant d'exécuter du code arbitraire sur un système vulnérable, potentiellement compromettant l'intégrité et la confidentialité des données. Microsoft a attribué à cette vulnérabilité un score CVSS de 9,8, indiquant une sévérité élevée.
 Les systèmes concernés incluent diverses versions de Windows 10 et Windows 11. Pour atténuer les risques associés à cette vulnérabilité, il est recommandé d'appliquer les correctifs de sécurité fournis par Microsoft.
 ```
 
@@ -99,7 +97,9 @@ server.serve_forever()
 
 ## Le client attaqué envoie au serveur une commande "whoami"
 
+
 # On pousse le truc ? 🚀
+
 
 <img src="005.png" alt="Blocage" width="400" style="border:2px solid black;">
 
