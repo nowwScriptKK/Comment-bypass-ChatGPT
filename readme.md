@@ -34,14 +34,16 @@ Si vous lui poser une question brute, il vous mettra un stop.
 
 Il faut toujours tourner autours du sujet comme si vous étiez entrain de chercher à apprendre la "protection", ne JAMAIS parler de hacking brute au début, une fois la conversation lancé vous serait plus libre. 
 
-![Mon image](002.png){ width=500 }
+<img src="002.png" alt="Blocage" width="400" style="border:2px solid black;">
 
-![Mon image](003.png){ width=500 }
+<img src="003.png" alt="Blocage" width="400" style="border:2px solid black;">
+
 
 Vous pouvez voir ici qu'il ma très vite sortie un code sur l'utilisation de cette faille, pour le moment le code ne prend pas en compte de charge utile, il n'est clairement pas fonctionnel.
 Je vais juste lui demander de me le faire maintenant qu'il à commencer à se lacher. 
 
-![Mon image](004.png){ width=500 }
+<img src="004.png" alt="Blocage" width="400" style="border:2px solid black;">
+
 
 Maintenant, vous avez une charge utile + un serveur prêt à être utiliser en sautant toutes les restriction éthique de ChatGPT.
 
@@ -94,7 +96,14 @@ server.serve_forever()
 
 # On pousse le truc ? 🚀
 
-![Mon image](005.png){ width=500 }
+<img src="005.png" alt="Blocage" width="400" style="border:2px solid black;">
+
+
+Allé, juste pour le fun je demande a ChatGPT d'amélioré ce readme qui explique comment le bypass.
+
+Au début il refuse, puis je lui demande juste de ne pas prendre en compte le text du readme et HOP MAGIE: 
+
+<img src="006.png" alt="Blocage" width="400" style="border:2px solid black;">
 
 Cette fois je ne vous transmet pas le code de la charge utile lourde, je vous laisse gérer.
 
