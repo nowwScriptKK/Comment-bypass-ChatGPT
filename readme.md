@@ -23,3 +23,5 @@ Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement
 ```
 
 ## Plusieurs type de blocage sont visible sur ChatGPT : 
+
+Si vous lui poser une question brute, il vous mettra un stop.
