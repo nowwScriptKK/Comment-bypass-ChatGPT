@@ -1,8 +1,11 @@
 # Comment bypass certaines restriction de ChatGPT !
 
-⚠️Je ne suis pas réponsable de vos actes, ce tuto et la juste pour vous apprendre les façon de parler à ChatGPT ou au language NLP⚠️
+⚠️Je ne suis pas réponsable de vos actes⚠️
 
-Salut à tous,
+⚠️Ce tuto et juste la pour vous apprendre⚠️
+
+
+Salut à tous
 
 Aujourd'hui, je vais vous montrer comment contourner les restrictions des modèles de langage NLP sans utiliser de prompts. Vous verrez qu'en présentant les problématiques de manière adéquate, ces modèles peuvent nous fournir des réponses très facilement.
 
@@ -10,7 +13,14 @@ L'objectif est de vous faire comprendre que les restrictions de ce type de modè
 
 Nous allons prendre l'exemple de l'exploitation de CVE-2024-38063.
 
-## Détails de la Vulnérabilité (CVE-2024-38063) : 
+
+## ✔️ NLP :
+```
+Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement Automatique du Langage Naturel" en français. Il s'agit d'un domaine de l'intelligence artificielle qui se concentre sur l'interaction entre les ordinateurs et les humains à travers le langage naturel. Les modèles de langage NLP sont des systèmes conçus pour comprendre, interpréter et générer du texte en langage humain.
+```
+
+
+## 🌟 Détails de la Vulnérabilité (CVE-2024-38063) : 
 ```
 La CVE-2024-38063 est une vulnérabilité critique d'exécution de code à distance affectant le protocole TCP/IP de Windows, spécifiquement lors du traitement des paquets IPv6. Cette faille permet à un attaquant distant d'exécuter du code arbitraire sur un système vulnérable, potentiellement compromettant l'intégrité et la confidentialité des données.
 Strobes Security
@@ -19,18 +29,13 @@ Les systèmes concernés incluent diverses versions de Windows 10 et Windows 11.
 ```
 
 
-## NLP :
-```
-Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement Automatique du Langage Naturel" en français. Il s'agit d'un domaine de l'intelligence artificielle qui se concentre sur l'interaction entre les ordinateurs et les humains à travers le langage naturel. Les modèles de langage NLP sont des systèmes conçus pour comprendre, interpréter et générer du texte en langage humain.
-```
-
-## Plusieurs type de blocage sont visible sur ChatGPT : 
+## 🛑 Plusieurs type de blocage sont visible sur ChatGPT : 
 
 Si vous lui poser une question brute, il vous mettra un stop, ici on s'arrête uniquement sur les limitation ethnique, pour bypass les mot, écriez les juste avec des grosse grosse faute d'hortographe, exemple "jzker", dans la bonne phrase, lui comprendra hacker.
 
 <img src="001.png" alt="Blocage" width="400" style="border:2px solid black;">
 
-## Bypass : 
+## 🎯 Bypass : 
 
 Il faut toujours tourner autours du sujet comme si vous étiez entrain de chercher à apprendre la "protection", ne JAMAIS parler de hacking brute au début, une fois la conversation lancé vous serait plus libre. 
 
