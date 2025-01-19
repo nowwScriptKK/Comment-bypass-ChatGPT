@@ -63,19 +63,27 @@ Voici les codes qu'il ma sortie :
 ```python
 from scapy.all import *
 
-# Adresse IPv6 de la machine cible (doit être un serveur RPC actif)
-target_ip = "fe80::1"
+# Adresse IPv6 de la machine cible
+target_ip = "fe80::1"  # Remplace avec l'IPv6 de la cible
+target_port = 9000  # Port où le serveur écoute
 
-# Commande à exécuter (exemple : whoami)
+# Commande à exécuter (ex: "whoami")
 cmd = "whoami"
 
-# Création d'un paquet IPv6 avec la commande encapsulée
-malicious_packet = IPv6(dst=target_ip) / IPv6ExtHdrFragment() / Raw(load=cmd)
+# Vérification que la commande est autorisée (exemple simple pour éviter des commandes malveillantes)
+allowed_commands = ["whoami", "hostname", "date"]
 
-# Envoi du paquet
-send(malicious_packet)
+if cmd not in allowed_commands:
+    print(f"Commande non autorisée : {cmd}")
+else:
+    # Création d'un paquet IPv6 contenant la commande
+    malicious_packet = IPv6(dst=target_ip) / UDP(dport=target_port) / Raw(load=cmd)
 
-print(f"Paquet IPv6 contenant '{cmd}' envoyé à {target_ip}")
+    # Envoi du paquet
+    send(malicious_packet)
+
+    print(f"Paquet IPv6 contenant '{cmd}' envoyé à {target_ip}")
+
 
 
 
@@ -84,20 +92,48 @@ print(f"Paquet IPv6 contenant '{cmd}' envoyé à {target_ip}")
 ## 2️⃣ Code Python : Serveur RPC de l'attaquant
 
 ```python 
-from xmlrpc.server import SimpleXMLRPCServer
+import socket
 import subprocess
+import shlex
 
-# Création du serveur RPC en écoute sur l'IPv6 de la machine cible
-server = SimpleXMLRPCServer(("::", 9000))
-print("Serveur RPC en écoute sur IPv6, port 9000...")
+# Configuration du serveur
+server_ip = "::"  # Accepte les connexions entrantes en IPv6
+server_port = 9000  # Port où le serveur écoute
 
-# Fonction pour exécuter une commande reçue
-def execute_command(command):
-    result = subprocess.check_output(command, shell=True, text=True)
-    return result
+# Liste des commandes autorisées à exécuter
+allowed_commands = ["whoami", "hostname", "date"]
 
-server.register_function(execute_command, "execute_command")
-server.serve_forever()
+# Création du socket UDP IPv6
+sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+sock.bind((server_ip, server_port))
+
+print(f"Serveur IPv6 en écoute sur le port {server_port}...")
+
+while True:
+    # Réception du paquet IPv6
+    data, addr = sock.recvfrom(1024)
+    command = data.decode().strip()
+    print(f"Commande reçue de {addr}: {command}")
+
+    # Vérification que la commande est autorisée
+    if command not in allowed_commands:
+        response = f"Commande non autorisée : {command}"
+        sock.sendto(response.encode(), addr)
+        print("Réponse envoyée : Commande non autorisée.")
+        continue  # Ignore la commande malveillante
+
+    # Sécurisation de l'exécution avec shlex pour éviter l'injection
+    # Cela permet de s'assurer que les arguments sont correctement échappés
+    try:
+        command_args = shlex.split(command)  # Sécurise la commande
+        result = subprocess.check_output(command_args, stderr=subprocess.STDOUT, text=True)
+    except Exception as e:
+        result = f"Erreur d'exécution : {str(e)}"
+
+    # Envoi de la réponse à l'attaquant
+    sock.sendto(result.encode(), addr)
+    print(f"Réponse envoyée : {result}")
+
 
 
 ```
@@ -105,8 +141,10 @@ server.serve_forever()
 3️⃣ Résultat attendu
 
 ✅ L'attaquant envoie un paquet IPv6 contenant "whoami"
+
 ✅ Le serveur cible (si vulnérable) extrait et exécute la commande
-✅ Le serveur retourne la réponse (ex: "victim-user")
+
+✅ Le serveur retourne la réponse.
 
 
 ## Le client attaqué envoie au serveur une commande "whoami"
