@@ -9,7 +9,7 @@ Salut à tous
 
 Aujourd'hui, je vais vous montrer comment contourner les restrictions des modèles de langage NLP sans utiliser de prompts. Vous verrez qu'en présentant les problématiques de manière adéquate, ces modèles peuvent nous fournir des réponses très facilement.
 
-L'objectif est de vous faire comprendre que les restrictions de ce type de modèle sont pratiquement impossibles à surmonter.
+L'objectif est de vous faire comprendre que les restrictions de ce type de modèle sont pratiquement impossibles à réellement restreindre.
 
 Nous allons prendre l'exemple de l'exploitation de CVE-2024-38063.
 
