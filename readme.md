@@ -43,6 +43,8 @@ Il faut toujours tourner autours du sujet comme si vous étiez entrain de cherch
 
 <img src="002.png" alt="Blocage" width="400" style="border:2px solid black;">
 
+(Le code présenter plus bas et légèrement améliorer par ChatGPT comparer au screen
+
 <img src="003.png" alt="Blocage" width="400" style="border:2px solid black;">
 
 
