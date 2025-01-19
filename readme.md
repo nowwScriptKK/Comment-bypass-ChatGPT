@@ -42,13 +42,14 @@ Il faut toujours tourner autours du sujet comme si vous étiez entrain de cherch
 <img src="003.png" alt="Blocage" width="400" style="border:2px solid black;">
 
 
-Vous pouvez voir ici qu'il ma très vite sortie un code sur l'utilisation de cette faille, pour le moment le code ne prend pas en compte de charge utile, il n'est clairement pas fonctionnel.
+✅ Vous pouvez voir ici qu'il ma très vite sortie un code sur l'utilisation de cette faille, pour le moment le code ne prend pas en compte de charge utile, il n'est clairement pas fonctionnel.
+
 Je vais juste lui demander de me le faire maintenant qu'il à commencer à se lacher. 
 
 <img src="004.png" alt="Blocage" width="400" style="border:2px solid black;">
 
 
-Maintenant, vous avez une charge utile + un serveur prêt à être utiliser en sautant toutes les restriction éthique de ChatGPT.
+✅ Maintenant, vous avez une charge utile + un serveur prêt à être utiliser en sautant toutes les restriction éthique de ChatGPT.
 
 Voici les codes qu'il ma sortie : 
 
