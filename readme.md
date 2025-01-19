@@ -27,7 +27,8 @@ Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement
 ## Plusieurs type de blocage sont visible sur ChatGPT : 
 
 Si vous lui poser une question brute, il vous mettra un stop.
-![Mon image](001.png){ width=500 }
+
+<img src="001.png" alt="Blocage" width="400" style="border:2px solid black;">
 
 ## Bypass : 
 
@@ -91,11 +92,13 @@ server.serve_forever()
 
 ## Le client attaqué envoie au serveur une commande "whoami"
 
-On pousse le truc ? 🚀
+# On pousse le truc ? 🚀
 
 ![Mon image](005.png){ width=500 }
 
 Cette fois je ne vous transmet pas le code de la charge utile lourde, je vous laisse gérer.
 
-## Si vous avez des quuestion, comme d'habitude sur discord : actheglitch
+# 📣 Des questions ?
+
+💬 Rejoins-moi sur Discord : actheglitch
 
