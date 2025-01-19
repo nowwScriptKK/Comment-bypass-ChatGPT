@@ -26,7 +26,7 @@ Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement
 
 ## Plusieurs type de blocage sont visible sur ChatGPT : 
 
-Si vous lui poser une question brute, il vous mettra un stop.
+Si vous lui poser une question brute, il vous mettra un stop, ici on s'arrête uniquement sur les limitation ethnique, pour bypass les mot, écriez les juste avec des grosse grosse faute d'hortographe, exemple "jzker", dans la bonne phrase, lui comprendra hacker.
 
 <img src="001.png" alt="Blocage" width="400" style="border:2px solid black;">
 
