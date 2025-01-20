@@ -34,9 +34,15 @@ Les systèmes concernés incluent diverses versions de Windows 10 et Windows 11.
 
 Si vous lui poser une question brute, il vous mettra un stop, ici on s'arrête uniquement sur les limitations ethnique, pour bypass les mots, écrivez les juste avec des grosse grosse faute d'hortographe, exemple "jzker", dans la phrase cohérente les model NLP comprendront les caractère lié au points, lui dans ce cas comprendra hacker.
 
-Ici, nous avons même pas besoin d'utiliser des mots chelou.
+Je vous met quand même un exemple de phrase avec mot complètement détourner :
 
-Exploitation :
+## Mot et phrase détourner, context d'exploitation de la CVE-2024-38063 
+
+<img src="007.png" alt="Blocage" width="400" style="border:2px solid black;">
+
+# Exploitation :
+
+## Dans les exemples qui suis, ici nous avons même pas besoin d'utiliser des mots chelou
 
 <img src="001.png" alt="Blocage" width="400" style="border:2px solid black;">
 
