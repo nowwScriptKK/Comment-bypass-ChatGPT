@@ -177,6 +177,7 @@ Au début il refuse, puis je lui demande juste de ne pas prendre en compte le te
 Cette fois je ne vous transmet pas le code de la charge utile lourde, je vous laisse gérer.
 
 # 📣 Des questions ?
+Bien-sur ce tuto et a titre d'exemple et peux ne pas reflétée l'éxactitude de la réalité, de plus d'autre languague serait beaucoup mieux pour exploiter ce type de faille, mais vous avez la typologie pour demander se que vous voulez aux languages NLP
 
 💬 Rejoins-moi sur Discord : actheglitch
 
