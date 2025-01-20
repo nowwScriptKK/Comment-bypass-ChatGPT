@@ -4,6 +4,7 @@
 
 ⚠️Ce tuto et juste la pour vous apprendre⚠️
 
+Bien-sur ce tuto et a titre d'exemple et peux ne pas reflétée l'éxactitude de la réalité, de plus d'autre languague serait beaucoup mieux pour exploiter ce type de faille, mais vous avez la typologie pour demander se que vous voulez aux languages NLP/LLM
 
 Salut à tous
 
