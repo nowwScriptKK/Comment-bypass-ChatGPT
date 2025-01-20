@@ -21,7 +21,13 @@ LLM : Un LLM est un type avancé de modèle NLP entraîné sur de très grandes 
 
 Les LLMs utilisent le deep learning, en particulier les architectures de Transformers (ex : GPT, LLaMA, Falcon) pour produire des textes plus cohérents et contextuels.
 ```
-
+Critère	NLP 📝	LLM 🤖
+Définition	Domaine de l’IA traitant le langage	Type avancé de modèle NLP basé sur l’IA
+Échelle	Modèles de petite/moyenne taille	Modèles gigantesques (milliards de paramètres)
+Technologie	Règles, statistiques, ML	Deep Learning (Transformers)
+Exemples	Analyse de sentiments, traduction	ChatGPT, LLaMA, Claude
+Capacités	Tâches spécifiques	Compréhension large et génération de texte
+Puissance	Moins gourmand en ressources	Nécessite GPU puissants pour le training
 
 ## 🌟 Détails de la Vulnérabilité (CVE-2024-38063) : 
 ```
