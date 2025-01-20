@@ -14,9 +14,12 @@ L'objectif est de vous faire comprendre que les restrictions de ce type de modè
 Nous allons prendre l'exemple de l'exploitation de CVE-2024-38063.
 
 
-## ✔️ NLP :
+## ✔️ NLP/LLM  :
 ```
 Le terme "NLP" fait référence à "Natural Language Processing", ou "Traitement Automatique du Langage Naturel" en français. Il s'agit d'un domaine de l'intelligence artificielle qui se concentre sur l'interaction entre les ordinateurs et les humains à travers le langage naturel. Les modèles de langage NLP sont des systèmes conçus pour comprendre, interpréter et générer du texte en langage humain.
+LLM : Un LLM est un type avancé de modèle NLP entraîné sur de très grandes quantités de données textuelles pour générer du texte, répondre à des questions et accomplir diverses tâches de compréhension du langage.
+
+Les LLMs utilisent le deep learning, en particulier les architectures de Transformers (ex : GPT, LLaMA, Falcon) pour produire des textes plus cohérents et contextuels.
 ```
 
 
@@ -177,7 +180,7 @@ Au début il refuse, puis je lui demande juste de ne pas prendre en compte le te
 Cette fois je ne vous transmet pas le code de la charge utile lourde, je vous laisse gérer.
 
 # 📣 Des questions ?
-Bien-sur ce tuto et a titre d'exemple et peux ne pas reflétée l'éxactitude de la réalité, de plus d'autre languague serait beaucoup mieux pour exploiter ce type de faille, mais vous avez la typologie pour demander se que vous voulez aux languages NLP
+Bien-sur ce tuto et a titre d'exemple et peux ne pas reflétée l'éxactitude de la réalité, de plus d'autre languague serait beaucoup mieux pour exploiter ce type de faille, mais vous avez la typologie pour demander se que vous voulez aux languages NLP/LLM
 
 💬 Rejoins-moi sur Discord : actheglitch
 
