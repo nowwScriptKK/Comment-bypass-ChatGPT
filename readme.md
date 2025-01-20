@@ -8,7 +8,7 @@
 
 Salut à tous
 
-Aujourd'hui, je vais vous montrer comment contourner les restrictions des modèles de langage NLP sans utiliser de prompts. Vous verrez qu'en présentant les problématiques de manière adéquate, ces modèles peuvent nous fournir des réponses très facilement.
+Aujourd'hui, je vais vous montrer comment contourner les restrictions des modèles de langage NLP/LLM sans utiliser de prompts. Vous verrez qu'en présentant les problématiques de manière adéquate, ces modèles peuvent nous fournir des réponses très facilement.
 
 L'objectif est de vous faire comprendre que les restrictions de ce type de modèle sont pratiquement impossibles à réellement restreindre.
 
@@ -187,7 +187,6 @@ Au début il refuse, puis je lui demande juste de ne pas prendre en compte le te
 Cette fois je ne vous transmet pas le code de la charge utile lourde, je vous laisse gérer.
 
 # 📣 Des questions ?
-Bien-sur ce tuto et a titre d'exemple et peux ne pas reflétée l'éxactitude de la réalité, de plus d'autre languague serait beaucoup mieux pour exploiter ce type de faille, mais vous avez la typologie pour demander se que vous voulez aux languages NLP/LLM
 
 💬 Rejoins-moi sur Discord : actheglitch
 
